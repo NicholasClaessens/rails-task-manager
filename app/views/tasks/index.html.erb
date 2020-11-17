@@ -1,0 +1,17 @@
+<h1>My tasks</h1>
+
+<ul>
+  <% @tasks.each do |task| %>
+  <li>
+    <% if task.completed == true %>
+      <img src="https://www.flaticon.com/svg/static/icons/svg/845/845646.svg">
+    <% else %>
+      <img src="https://www.flaticon.com/svg/static/icons/svg/1828/1828665.svg">
+    <% end %>
+    <%= link_to task.title, task_path(task) %>
+    <%= link_to image_tag("https://www.flaticon.com/svg/static/icons/svg/1214/1214428.svg"), "tasks/#{task.id}/destroy" %>
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to "Create a task", new_task_path %>
